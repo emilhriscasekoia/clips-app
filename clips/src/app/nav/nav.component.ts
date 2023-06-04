@@ -14,7 +14,7 @@ export class NavComponent {
     $event.preventDefault(); // this i here in order to prevent anchor from html template to add the
     //link and do a redirect, in our case be have an diez # there
     // here we call the function in order to toggle the boolean on and off
-    this.modal.toggleModal();
+    this.modal.toggleModal('auth');
   }
 
 }
