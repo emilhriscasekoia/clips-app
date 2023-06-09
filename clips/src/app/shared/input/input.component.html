@@ -1,5 +1,6 @@
-<input [formControl]="control" type="text" class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
-duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" placeholder="Enter Name" />
+<input [formControl]="control" [type]="type" class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" [placeholder]="placeholder"
+  [mask]="format" [dropSpecialCharacters]="false" />
 <ng-container *ngIf="control.touched && control.dirty">
   <p *ngIf="control.errors?.['required']" class="text-red-400">
     Field is Required.
@@ -8,4 +9,20 @@ duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400" 
     The value you inputted is {{ control.errors?.['minlength'].actualLength }} characters long.
     It must be at least {{ control.errors?.['minlength'].requiredLength}} characters long.
   </p>
+  <p *ngIf="control.errors?.['email']" class="text-red-400">
+    Email type is incorect please check again
+  </p>
+  <p *ngIf="control.errors?.['min']" class="text-red-400">
+    You are to young in order to register
+  </p>
+  <p *ngIf="control.errors?.['max']" class="text-red-400">
+    You are to old, you should die instead
+  </p>
+  <p *ngIf="control.errors?.['pattern']" class="text-red-400">
+    The phone number is invalid, please check again more carefull
+  </p>
+  <p *ngIf="control.errors?.['pattern']" class="text-red-400">
+    Password must be at least 8 characters long, have 1 uppercase letter, 1 lowercase letter, 1 number.
+  </p>
+
 </ng-container>
