@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,10 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private auth: AngularFireAuth){
+
+  }
+
   name = new FormControl("", [
     Validators.required,
     Validators.minLength(3)
