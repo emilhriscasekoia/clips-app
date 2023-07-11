@@ -1,0 +1,9 @@
+Tailwind documentation: https://tailwindcss.com you can search for things like margin or padding to see the classes 
+1: installing tailwind in angular project:
+	npm install -d tailwindcss@latest
+2: now we have to config tailwindm run this command:
+	npx tailwind init
+
+
+	
+	
