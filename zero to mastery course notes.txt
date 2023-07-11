@@ -3,6 +3,15 @@ Tailwind documentation: https://tailwindcss.com you can search for things like m
 	npm install -d tailwindcss@latest
 2: now we have to config tailwindm run this command:
 	npx tailwind init
+3: in the tailwind.config.js, we gona put : content: ['.src/**/*.{html,ts}']
+ this meand that tailwind will check in src folder for tailwind class and remove all css style that is not a tailwind class or (purge css)
+4: in style.css we gona ad:
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+
+
 
 
 	
