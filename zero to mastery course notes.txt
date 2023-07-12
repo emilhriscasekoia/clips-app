@@ -26,7 +26,7 @@ If we open the app module we will find the BrowserModule. The BrowserModule shou
 
 	ng generate component user/auth-modal 
 as we see above, the command create a component under the user module, as we saw, components are registered in appModule, we can force he CLI to declare components in a diferent module, in our case in the user module by creating the component in the user module directory. The CLI is smart enough to understant that we want that the component to be declared inside the user module.
-
+If we declare a component inside a module and we need to use the same component inside a diferent module we have to export the specific component in order to make it be accessible by another module.
  
 
 
