@@ -11,6 +11,25 @@ Tailwind documentation: https://tailwindcss.com you can search for things like m
 	@tailwind utilities;
 
 
+Modules 
+A module is a box of multiple components and services together that can be reuse, for now we gona create a user module that gona keep everything realted to user with this command:
+	ng generate module user
+
+The AppModule is the root module of an app, the module system in angular enable us to import and export group of files, the modules we create should group files by feature.
+We can visualize the modules as a hierarchi, the app module import the user module.
+There is no limit of the hierarchi length, the user module can also import another module, theose module will be children of the user module.
+When we generate components m they will bve automatic registred inside the app module.
+Is recomanded to stor modules in dedicated directories
+Modules generated with the cli are not registered. We need to import the module into the app module. The User module should we added in the list of imports in the app.module.ts
+The common module export components, directives and pipes, ex (*ngIf) is exported by this module.
+If we open the app module we will find the BrowserModule. The BrowserModule should always imported in to the root module. So Browser module auto importe the common module by default.
+
+	ng generate component user/auth-modal 
+as we see above, the command create a component under the user module, as we saw, components are registered in appModule, we can force he CLI to declare components in a diferent module, in our case in the user module by creating the component in the user module directory. The CLI is smart enough to understant that we want that the component to be declared inside the user module.
+
+ 
+
+
 
 
 
