@@ -1,8 +1,12 @@
 Tailwind documentation: https://tailwindcss.com you can search for things like margin or padding to see the classes 
 1: installing tailwind in angular project:
+
 	npm install -d tailwindcss@latest
+
 2: now we have to config tailwindm run this command:
+
 	npx tailwind init
+
 3: in the tailwind.config.js, we gona put : content: ['.src/**/*.{html,ts}']
  this meand that tailwind will check in src folder for tailwind class and remove all css style that is not a tailwind class or (purge css)
 4: in style.css we gona ad:
@@ -13,6 +17,7 @@ Tailwind documentation: https://tailwindcss.com you can search for things like m
 
 Modules 
 A module is a box of multiple components and services together that can be reuse, for now we gona create a user module that gona keep everything realted to user with this command:
+
 	ng generate module user
 
 The AppModule is the root module of an app, the module system in angular enable us to import and export group of files, the modules we create should group files by feature.
@@ -25,9 +30,20 @@ The common module export components, directives and pipes, ex (*ngIf) is exporte
 If we open the app module we will find the BrowserModule. The BrowserModule should always imported in to the root module. So Browser module auto importe the common module by default.
 
 	ng generate component user/auth-modal 
+
 as we see above, the command create a component under the user module, as we saw, components are registered in appModule, we can force he CLI to declare components in a diferent module, in our case in the user module by creating the component in the user module directory. The CLI is smart enough to understant that we want that the component to be declared inside the user module.
 If we declare a component inside a module and we need to use the same component inside a diferent module we have to export the specific component in order to make it be accessible by another module.
  
+We have single use components like the nav bar wich is used only one time in the app and reusable components wich are used multiple times like buttons. Our Modal component is a reusable component.
+When we create a component we gona thing about what we need... what dooes it need(input) and what does it provide(output).
+Is a common practice to create a shared module to organise the reusable components.
+Authentication Modal  - handle the inner content of the modalm it do not care if the modal has been displayed on the page
+Modal - will not handle the inner content, it will focus on the visibility of the modal
+Auth-modal is the parent
+modal is the chield
+
+
+
 
 
 
