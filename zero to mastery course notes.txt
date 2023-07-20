@@ -42,6 +42,27 @@ Modal - will not handle the inner content, it will focus on the visibility of th
 Auth-modal is the parent
 modal is the chield
 
+Services:
+Services are components that help us to manage the sharable methods of a project in order to make them reusable.
+The services have a @Injectable decorator wich make them diferent from the normal components,
+Most of the time we gona provideIn 'root' wich mean the service is available to all components starting from roo.
+In some cases we gona need to specify another path in order to limit the accesibility but it is recomanded that all services to start from root
+The services are singletone and an the application start, angular will create one instance of this service autoatically, when we need this service we only have to inject a object of the type of service via constructor of the component in order to get a reference of that singletone instance created and make use of the methods that the service share.
+Now we gona create an Id system for the modal in order to control the modal separatly.
+
+Css Problem
+Angular did not remplace the custom component we define in our app, instead the template get inserted inside the component tags. The component tag is considered the host element, by injecting a ref object we will get an access to the respective components host element, our main our main objective is to transfer the element from it's current location to the documents root wich is the body tag, before we can move the element we need to grab it.
+Since css chield components inherit from the parent component, the only solution to turn around this default behavior is to move the chield component or modal to the root of the app, the way to fix it by moving it to the root dinamically is:
+Inside the chield component or modal, we gona import ElementRef in @angular/core, this give us access to the host element of our component. we will inject the ElementRef in to our component in the constructor.
+constructor(private element: ElementRef) {}
+Then ngOnInit(): void {
+ document.body.appendChild(this.element.nativeElement);
+}
+
+Tabs:
+
+
+
 
 
 
